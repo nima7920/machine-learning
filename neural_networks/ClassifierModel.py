@@ -1,6 +1,5 @@
 from torch import nn
 
-
 def linear_relu(dim_in, dim_out):
     return [nn.Linear(dim_in, dim_out),
             nn.ReLU(inplace=True)]
@@ -18,5 +17,6 @@ class ClassifierModel(nn.Module):
         x_flatten = x.view(x.size()[0], -1)
         y = self.classifier(x_flatten)
         return y
+
 
 
