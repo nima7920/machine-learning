@@ -31,13 +31,12 @@ class DenseAutoEncoder:
         decoder = keras.Model(self.encoded, decoded)
         return decoded, decoder
 
-    def train(self, X,optimizer='adam',loss='binary_crossentropy', batch_size=256, epochs=50):
-        self.auto_encoder.compile(optimizer=optimizer,loss=loss)
-        self.auto_encoder.fit(X, X, batch_size, epochs,verbose=False)
+    def train(self, X, optimizer='adam', loss='binary_crossentropy', batch_size=256, epochs=50):
+        self.auto_encoder.compile(optimizer=optimizer, loss=loss)
+        self.auto_encoder.fit(X, X, batch_size, epochs, verbose=False)
 
     def predict(self, X):
         return self.auto_encoder.predict(X)
 
-    def encode(self,X):
+    def encode(self, X):
         return self.encoder.predict(X)
-
