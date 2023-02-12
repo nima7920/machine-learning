@@ -48,7 +48,7 @@ class PytorchTrainer:
                     outputs = self.model(data)
                     N += data.shape[0]
 
-                    tot_loss += data.shape[0] * loss(outputs, labels).item()
+                    tot_loss += data.shape[0] * self.loss(outputs, labels).item()
 
                     predicted_targets = outputs.argmax(dim=1)
                     correct += (predicted_targets == labels).sum().item()
